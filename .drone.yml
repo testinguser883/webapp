@@ -12,6 +12,13 @@ steps:
     - apk add git
     - git clone "https://github.com/rewanth1997/order"
 
+- name: testing volumes
+  volumes:
+    - name: repo
+      path: /order/
+  commands:
+    - ls -la /
+    
 # - name: building repo
 #   image: golang:alpine
 #   volumes:
@@ -27,13 +34,6 @@ steps:
 #     - go build -o $BASE_PATH/order_exe main.go
 #     - ./order_exe -h
 #     - mv ./order_exe /order/
-
-- name: testing volumes
-  volumes:
-    - name: repo
-      path: /order/
-  commands:
-    - ls -la /
 
 volumes:
 - name: repo
