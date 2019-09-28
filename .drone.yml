@@ -19,7 +19,7 @@ steps:
       path: /order/
   commands:
     - pwd
-    - env
+    - ls -la
     - cd order
     - apk add git
     - go get ./...
