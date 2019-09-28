@@ -18,7 +18,9 @@ steps:
     - name: repo
       path: /order/
   commands:
-    - ls -la /
+    - ls -la order
+    - echo "#######################"
+    - ls -la /order
     
 # - name: building repo
 #   image: golang:alpine
