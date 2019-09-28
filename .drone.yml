@@ -1,0 +1,32 @@
+kind: pipeline
+name: default
+
+steps:
+- name: cloning repo
+  image: alpine:3.10.2
+  volumes:
+    - name: repo
+      path: /order/
+  commands:
+    - apk update
+    - apk add git
+    - git clone "https://github.com/rewanth1997/order"
+
+- name: building repo
+  image: golang:alpine
+  volumes:
+    - name: repo
+      path: /order/
+  commands:
+    - pwd
+    - env
+    - cd order
+    - apk add git
+    - go get ./...
+    - go build -o order_exe main.go
+    - ./order_exe -h
+    - mv ./order_exe /order/
+
+volumes:
+- name: repo
+  temp: {}
