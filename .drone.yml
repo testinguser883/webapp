@@ -32,6 +32,7 @@ steps:
     - ls -la
     - cp -r /order $GOPATH/src/
     - cd $GOPATH/src/order
+    - ls -la
     - apk add git
     - go get ./...
     - go build -o /order/order_exe main.go
