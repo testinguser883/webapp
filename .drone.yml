@@ -29,13 +29,13 @@ steps:
     - name: repo
       path: /order/
   commands:
-    - ls -la
     - cp -r /order $GOPATH/src/
     - cd $GOPATH/src/order
     - ls -la
     - apk add git
     - go get ./...
     - go build -o /order/order_exe main.go
+    - ls -la /order
     - ./order/order_exe -h
 
 volumes:
