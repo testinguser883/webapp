@@ -13,6 +13,7 @@ steps:
     - git clone "https://github.com/rewanth1997/order"
 
 - name: testing volumes
+  image: golang:alpine
   volumes:
     - name: repo
       path: /order/
