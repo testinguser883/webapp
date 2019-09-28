@@ -18,12 +18,13 @@ steps:
     - name: repo
       path: /order/
   commands:
-    - pwd
+    - BASE_PATH=$(pwd)
     - ls -la
-    - cd order
+    - cp -r order /go/
+    - cd /go/order
     - apk add git
     - go get ./...
-    - go build -o order_exe main.go
+    - go build -o $(BASE_PATH)/order_exe main.go
     - ./order_exe -h
     - mv ./order_exe /order/
 
