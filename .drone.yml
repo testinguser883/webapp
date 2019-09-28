@@ -20,11 +20,11 @@ steps:
   commands:
     - BASE_PATH=$(pwd)
     - ls -la
-    - cp -r order /go/src/
-    - cd /go/src/order
+    - cp -r order $GOPATH/src/
+    - cd $GOPATH/src/order
     - apk add git
     - go get ./...
-    - go build -o $(BASE_PATH)/order_exe main.go
+    - go build -o $BASE_PATH/order_exe main.go
     - ./order_exe -h
     - mv ./order_exe /order/
 
