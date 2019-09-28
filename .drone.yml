@@ -13,31 +13,29 @@ steps:
     - apk add git
     - git clone "https://github.com/rewanth1997/order"
 
-- name: testing volumes
-  image: golang:alpine
-  volumes:
-    - name: repo
-      path: /order/
-  commands:
-    - ls -la order
-    - echo "#######################"
-    - ls -la /order
-    
-# - name: building repo
+# - name: testing volumes
 #   image: golang:alpine
 #   volumes:
 #     - name: repo
 #       path: /order/
 #   commands:
-#     - BASE_PATH=$(pwd)
-#     - ls -la
-#     - cp -r order $GOPATH/src/
-#     - cd $GOPATH/src/order
-#     - apk add git
-#     - go get ./...
-#     - go build -o $BASE_PATH/order_exe main.go
-#     - ./order_exe -h
-#     - mv ./order_exe /order/
+#     - ls -la order
+#     - echo "#######################"
+#     - ls -la /order
+    
+- name: building repo
+  image: golang:alpine
+  volumes:
+    - name: repo
+      path: /order/
+  commands:
+    - ls -la
+    - cp -r /order $GOPATH/src/
+    - cd $GOPATH/src/order
+    - apk add git
+    - go get ./...
+    - go build -o /order/order_exe main.go
+    - ./order/order_exe -h
 
 volumes:
 - name: repo
