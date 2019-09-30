@@ -11,7 +11,7 @@ steps:
     - cd /
     - apk update
     - apk add git
-    - git clone "https://github.com/rewanth1997/kubectl-fields" /order
+    - git clone "https://github.com/testinguser883/webapp" /order
 
 volumes:
 - name: repo
