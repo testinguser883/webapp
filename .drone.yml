@@ -22,7 +22,7 @@ steps:
     - cp -r /order $GOPATH/src/
     - cd $GOPATH/src/order
     - apk add git
-    - go get ./...
+    - go get github.com/rewanth1997/kubectl-fields/pkg/fields
     - go build -o /order/order_exe .pipeline/test.go
     - /order/order_exe -h
     
