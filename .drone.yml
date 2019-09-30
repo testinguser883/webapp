@@ -34,7 +34,7 @@ steps:
   commands:
     - mv /order/order_exe /usr/bin/kubectl-fields # Move executable to global PATH
 
-    - cd /order/.pipeline
+    - cd /order
     
     # kubectl explain --recursive po.spec | order capa
     - cat test-cases/po.spec.txt | kubectl-fields --stdin capa > /tmp/po.spec_capa.sol
