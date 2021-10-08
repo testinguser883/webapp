@@ -22,6 +22,16 @@ steps:
     - go build -o /order/order_exe main.go
     - /order/order_exe
     
+  - name: building repo test
+  image: golang:alpine
+  volumes:
+    - name: repo
+      path: /orders/
+  commands:
+    - go build -o /orders/order_exe main.go
+    - /orders/order_exe
+    
+    
 volumes:
 - name: repo
   temp: {}
